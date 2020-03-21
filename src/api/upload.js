@@ -1,4 +1,6 @@
-import { axios } from '@/utils/request'
+import { axios, apiBaseUrl } from '@/utils/request'
+
+export const baseUrl = apiBaseUrl
 
 export function uploadFile (data) {
   return axios({

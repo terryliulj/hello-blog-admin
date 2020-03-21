@@ -81,7 +81,7 @@
             <a-col :lg="24" :md="12" :sm="24">
               <a-form-item label="封面图">
                 <a-upload
-                  action="/api/blog/file/file/v1/upload/"
+                  :action="uploadAction"
                   listType="picture-card"
                   :fileList="fileList"
                   @preview="handlePreview"
@@ -150,7 +150,7 @@ import {
 } from '@/api/article'
 import { markdownOption } from '../article-constants'
 import { mavonEditor } from 'mavon-editor'
-import { uploadFile } from '@/api/upload'
+import { uploadFile, baseUrl } from '@/api/upload'
 import { fetchTagsList } from '@/api/tags'
 import { fetchCategoryLists } from '@/api/category'
 export default {
@@ -169,6 +169,7 @@ export default {
   },
   data () {
     return {
+      uploadAction: baseUrl + '/file/file/v1/upload/',
       title: '新增文章',
       isSync: 0,
       isComment: 0,
