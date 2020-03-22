@@ -76,6 +76,7 @@
               <UpLoadImage
                 v-model="this.icon"
                 @getImageUrl="getIcon"
+                :uploadAction="uploadAction"
                 :placeholder="`请选择图标`"
                 ref="handlerIconRef"
                 :imageUrl="this.icon"
@@ -102,6 +103,7 @@
                 v-model="this.content"
                 @getImageUrl="getContent"
                 ref="handlerContentRef"
+                :uploadAction="uploadAction"
                 :placeholder="`请输入社交内容`"
                 :imageUrl="this.content"
                 :style="show?'':'display: none'"></UpLoadImage>
@@ -130,8 +132,8 @@
 </template>
 
 <script>
-import { fetchSocial, updateSocial } from '@/api/social'
-import { createSocial } from '../../../api/social'
+import { fetchSocial, updateSocial, createSocial } from '@/api/social'
+import { baseUrl } from '@/api/upload'
 import UpLoadImage from '@/components/UpLoadImageAndFillInput/UpLoadImage'
 export default {
   name: 'CreateSocialForm',
@@ -149,6 +151,7 @@ export default {
   },
   data () {
     return {
+      uploadAction: baseUrl + '/file/file/v1/upload/',
       title: '新增社交信息',
       id: null,
       drawerVisible: false,
@@ -203,6 +206,7 @@ export default {
                 this.$emit('refreshTable')
               })
               .catch(err => {
+                console.log(err)
               })
           }
           this.resetForm()

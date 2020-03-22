@@ -5,7 +5,7 @@
       @blur="changeUrl"
       v-model="url"/>
     <a-upload
-      action="/api/blog/file/file/v1/upload/"
+      :action="uploadAction"
       listType="picture-card"
       :fileList="fileList"
       :remove="handleRemove"
@@ -27,6 +27,10 @@
 export default {
   name: '',
   props: {
+    uploadAction: {
+      type: String,
+      required: true
+    },
     placeholder: {
       type: String
     }

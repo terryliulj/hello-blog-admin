@@ -21,7 +21,7 @@
         <a-row class="form-row" :gutter="16">
           <a-col :lg="8" :md="12" :sm="24">
             <a-form-item label="允许评论">
-              <a-radio-group v-decorator="['isComment', { initialValue: 1 }]">
+              <a-radio-group v-decorator="['isComment', { initialValue: 0 }]">
                 <a-radio :value="1">是</a-radio>
                 <a-radio :value="0">否</a-radio>
               </a-radio-group>
@@ -29,7 +29,7 @@
           </a-col>
           <a-col :lg="8" :md="12" :sm="24">
             <a-form-item label="同步byteblogs">
-              <a-radio-group v-decorator="['isPublishByteBlogs', { initialValue: 1 }]">
+              <a-radio-group v-decorator="['isPublishByteBlogs', { initialValue: 0 }]">
                 <a-radio :value="1">是</a-radio>
                 <a-radio :value="0">否</a-radio>
               </a-radio-group>

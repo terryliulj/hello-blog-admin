@@ -20,7 +20,7 @@
         <span slot="content" slot-scope="text, record">
           <template>
             <avatar-list v-if="record.showType===1" size="large" ><avatar-list-item :tips="text" :src="text"/></avatar-list>
-            <ellipsis v-if="record.showType!==1"  :length="10" tooltip>{{ text }}</ellipsis>
+            <ellipsis v-if="record.showType!==1" :length="10" tooltip>{{ text }}</ellipsis>
           </template>
         </span>
 
@@ -140,9 +140,9 @@ export default {
   created () {},
   methods: {
     createHandler () {
+      this.$refs.createSocialForm.resetForm()
       this.formType = 'create'
       this.visible = true
-      this.$refs.createSocialForm.resetForm()
     },
     handleEdit (record) {
       this.$refs.createSocialForm.handleEdit(record)
